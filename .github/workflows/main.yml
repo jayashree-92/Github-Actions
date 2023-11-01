@@ -1,12 +1,12 @@
 name: publish🚀
 
 on:
- workflow_dispacth:
+ workflow_dispatch:
  push:
   branches:
   - main
 
-  jobs:
+   jobs:
    publish:
     runs-on: ubuntu-latest
 
@@ -37,4 +37,4 @@ on:
 
     
 
-    steps
+   
