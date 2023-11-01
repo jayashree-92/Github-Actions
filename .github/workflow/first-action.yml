@@ -1,0 +1,28 @@
+name: publish🚀
+
+on:
+ workflow_dispacth:
+ push:
+  branches:
+  - main
+
+  jobs:
+   publish:
+    runs-on: ubuntu-latest
+
+    steps:
+     - users: actions/checkout@v3
+
+     - name: setup .NET
+       users: actions/checkout@v3
+       with:
+         dotnet-version: "6.0.x"
+
+     - name: restore
+       run: dotnet restore ./currenttimeservice.sln
+
+     - name: build
+       run: dotnet build ./currenttimeservice.sln --configuration release --no restore
+
+     - name: Publish
+       run: dotnet publish ./currenttimeservice.sln --configuration release --no build
